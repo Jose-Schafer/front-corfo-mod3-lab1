@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Consulta Médica</title>
+        <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+
+            <a class="nav__icon" href="index.html">
+                <img width="70rem" src="https://img.icons8.com/ios-filled/50/nurse-female.png" alt="nurse-female"/>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-link">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="equipo_medico.html">Equipo Médico</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="page__content">
+            <h2>Contáctanos!</h2>
+            <section class="form container-fluid mb-4">
+                <form action="#" method="post" class="w-75 mx-auto">
+                    <div>
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="email" class="form-label">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" placeholder="Tu correo electrónico" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="asunto" class="form-label">Asunto:</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="Motivo del contacto" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success mt-2 w-100">Enviar</button>
+                </form>
+            </section>
+
+
+            <h2 class="mt-4">Ubicación</h2>
+            <section class="container-fluid">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1785.6963924489287!2d-72.95536615427253!3d-41.448073851562675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96183b183a3638a5%3A0x709b29908732a552!2sHospital%20Puerto%20Montt!5e0!3m2!1ses!2scl!4v1729510847996!5m2!1ses!2scl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+        </div>
+        <footer class="container-fluid bg-light p-5">
+            <h1>Footer</h1>
+            <h3>Contacto y Redes Sociales</h3>
+            <p>
+                Nos comprometemos a brindarte la mejor atención médica. Si tienes alguna consulta o deseas agendar una cita, no dudes en contactarnos.
+            </p>
+            <p>
+                <strong>Dirección:</strong> Avenida Principal 123, Ciudad, País<br>
+                <strong>Teléfono:</strong> +56 9 1234 5678<br>
+                <strong>Email:</strong> contacto@hospital.com
+            </p>
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="equipo_medico.html">Equipo Médico</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <h3 class="mb-2">Síguenos en nuestras redes sociales</h3>
+            <div class="row w-100 mb-4 p-4">
+                <a href="https://www.facebook.com/hospital" title="Facebook" target="_blank" class="col col-lg-1">
+                    <img src="static/facebook-icon.png" alt="Facebook" class="w-100">
+                </a>
+                <a href="https://www.twitter.com/hospital" title="Twitter" target="_blank" class="col col-lg-1">
+                    <img src="static/twitter-icon.png" alt="Twitter" class="w-100">
+                </a>
+                <a href="https://www.instagram.com/hospital" title="Instagram" target="_blank" class="col col-lg-1">
+                    <img src="static/instagram-icon.png" alt="Instagram" class="w-100">
+                </a>
+            </div>
+        </footer>
+
+    </body>
+</html>

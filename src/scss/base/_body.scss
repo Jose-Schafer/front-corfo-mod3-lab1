@@ -1,0 +1,19 @@
+@use "./mixins";
+
+.page__content {
+  padding-top: 6rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 6rem;
+
+  @include mixins.lg {
+    padding-top: 4rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+  }
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
