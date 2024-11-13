@@ -14,7 +14,10 @@ module.exports = {
     assetModuleFilename: 'img/[name][ext]'  // Ensure images go to 'img/' in 'dist'
   },
   devServer: {
-    static: path.resolve(__dirname, 'dist'),
+    static: [
+      { directory: path.resolve(__dirname, 'dist') },
+      { directory: path.resolve(__dirname, 'src/static') }
+    ],
     port: 8080,
     hot: true
   },
@@ -80,7 +83,7 @@ module.exports = {
             },
           },
         ],
-      },
+      }, { test: /\.json$/, type: 'json' }
     ]
   }
 }

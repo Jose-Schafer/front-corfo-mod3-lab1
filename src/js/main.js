@@ -6,6 +6,7 @@ import * as bootstrap from 'bootstrap'
 
 // Import Servicos médicos
 require('./comentarios');
+require('./doctores');
 
 console.log("Aplicación inicializada")
 

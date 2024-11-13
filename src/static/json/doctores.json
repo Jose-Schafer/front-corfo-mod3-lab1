@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Dr. Juan",
+    "specialty": "Especialista en Traumatología.",
+    "image": "img/doctor_1.png",
+    "diplomas": {
+      "titulo": "Universidad de Chile",
+      "magister": "Pointificia Universidad Católica"
+    }
+  },
+  {
+    "name": "Dr. Pedro",
+    "specialty": "Especialista en Otorrinolaringología.",
+    "image": "img/doctor_2.png",
+    "diplomas": {
+      "titulo": "Universidad de Chile",
+      "magister": "Pointificia Universidad Católica"
+    }
+  },
+  {
+    "name": "Dr. José",
+    "specialty": "Especialista en Kinesiología.",
+    "image": "img/doctor_3.png",
+    "diplomas": {
+      "titulo": "Universidad de Chile",
+      "magister": "Pointificia Universidad Católica"
+    }
+  },
+  {
+    "name": "Dr. Eduardo",
+    "specialty": "Especialista en Gediatría.",
+    "image": "img/doctor_4.png",
+    "diplomas": {
+      "titulo": "Universidad de Chile",
+      "magister": "Pointificia Universidad Católica"
+    }
+  }
+]
+
