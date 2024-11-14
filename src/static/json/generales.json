@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Dr. ricardo",
+    "specialty": "Médico General",
+    "image": "img/doctor_1.png",
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. luis",
+    "specialty": "Médico General",
+    "image": "img/doctor_2.png",
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. victor",
+    "specialty": "Médico General",
+    "image": "img/doctor_3.png",
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. lucio",
+    "specialty": "Médico General",
+    "image": "img/doctor_4.png",
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  }
+]
+

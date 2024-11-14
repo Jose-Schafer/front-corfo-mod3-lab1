@@ -14,8 +14,14 @@ function capitalizeAllAttributes(obj) {
 
 async function loadDoctorCards() {
   try {
-    const response = await fetch('json/doctores.json');
-    const doctors = await response.json();
+    let response = await fetch('json/especialistas.json');
+    const especialistas = await response.json();
+
+    response = await fetch('json/generales.json');
+    const generales = await response.json();
+
+    // Mergear jsons
+    const doctors = [...especialistas, ...generales]
 
     const container = document.getElementById('doctores-row');
 
@@ -38,7 +44,7 @@ async function loadDoctorCards() {
       const { image, name, specialty, diplomas: { titulo, magister } } = customDoctor;
 
       const card = document.createElement('div');
-      card.className = 'card col-8 col-lg m-lg-2 mx-auto';
+      card.className = 'card col-8 col-lg-3 m-lg-2 mx-auto';
 
       const img = document.createElement('img');
       img.className = "card-img-top";
