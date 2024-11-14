@@ -1,3 +1,17 @@
+function capitalizeWords(string) {
+  return string.split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function capitalizeAllAttributes(obj) {
+  return Object.fromEntries(
+    Object.entries(obj).map(([key, value]) =>
+      [key, typeof value === 'string' ? capitalizeWords(value) : value]
+    )
+  );
+}
+
 async function loadDoctorCards() {
   try {
     const response = await fetch('json/doctores.json');
@@ -12,7 +26,16 @@ async function loadDoctorCards() {
 
     doctors.forEach(doctor => {
 
-      const { image, name, specialty, diplomas: { titulo, magister } } = doctor;
+      // Clonar json
+      let customDoctor = { ...doctor };
+
+      // Modificar json
+      customDoctor = capitalizeAllAttributes(customDoctor);
+      console.log(`JSON Original: ${JSON.stringify(doctor)}`);
+      console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
+
+
+      const { image, name, specialty, diplomas: { titulo, magister } } = customDoctor;
 
       const card = document.createElement('div');
       card.className = 'card col-8 col-lg m-lg-2 mx-auto';
