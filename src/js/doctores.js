@@ -49,6 +49,8 @@ function createDoctorHTML(image, name, specialty, titulo, magister) {
   return card
 }
 
+let sortAscending = true;
+
 async function loadDoctorCards() {
   try {
     let response = await fetch('json/especialistas.json');
@@ -59,6 +61,12 @@ async function loadDoctorCards() {
 
     // Mergear jsons
     const doctors = [...especialistas, ...generales]
+
+    // Sort doctors
+    if (sortAscending) {
+    } else {
+      doctors.sort((a, b) => b.experience - a.experience);
+    }
 
     const container = document.getElementById('doctores-row');
     container.innerHTML = ""; // Borrar doctores ya renderizados para evitar duplicados
@@ -75,22 +83,20 @@ async function loadDoctorCards() {
 
       // Modificar json
       customDoctor = capitalizeAllAttributes(customDoctor);
-      // console.log(`JSON Original: ${JSON.stringify(doctor)}`);
-      // console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
-
+      console.log(`JSON Original: ${JSON.stringify(doctor)}`);
+      console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
 
       const { image, name, specialty, diplomas: { titulo, magister } } = customDoctor;
 
-      // Get the input element
+      // Obtener el valor del input
       const inputElement = document.getElementById("doctorFilter");
-
-      // Get the text from the input
       const inputValue = inputElement.value;
-      console.log(`name ${name}: ${name.includes(inputValue)}`);
 
+      // Condicional para ver si renderizar al doctor o no
       if (inputValue == '') {
         const card = createDoctorHTML(image, name, specialty, titulo, magister);
         container.appendChild(card);
+
       } else if (name.includes(inputValue)) {
         const card = createDoctorHTML(image, name, specialty, titulo, magister);
         container.appendChild(card);
@@ -101,6 +107,20 @@ async function loadDoctorCards() {
   }
 }
 
+async function changeSortDirection() {
+  console.log(`Change sort direction: ${sortAscending} -> ${!sortAscending}`)
+
+  // Change sort direction
+  sortAscending = !sortAscending;
+
+  // Change button text
+  const button = document.getElementById("sortButton");
+  button.textContent = sortAscending ? "^" : "v";
+
+  // Sort doctors
+  loadDoctorCards();
+}
+
 document.addEventListener('DOMContentLoaded', loadDoctorCards);
 document.getElementById("doctorFilter").addEventListener("change", loadDoctorCards);
-
+document.getElementById("sortButton").addEventListener("click", changeSortDirection)
