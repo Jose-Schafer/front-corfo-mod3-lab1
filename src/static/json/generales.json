@@ -3,6 +3,7 @@
     "name": "Dr. ricardo",
     "specialty": "Médico General",
     "image": "img/doctor_1.png",
+    "experience": 3,
     "diplomas": {
       "titulo": "universidad de chile",
       "magister": "pointificia universidad católica"
@@ -12,6 +13,7 @@
     "name": "Dr. luis",
     "specialty": "Médico General",
     "image": "img/doctor_2.png",
+    "experience": 10,
     "diplomas": {
       "titulo": "universidad de chile",
       "magister": "pointificia universidad católica"
@@ -21,6 +23,7 @@
     "name": "Dr. victor",
     "specialty": "Médico General",
     "image": "img/doctor_3.png",
+    "experience": 2,
     "diplomas": {
       "titulo": "universidad de chile",
       "magister": "pointificia universidad católica"
@@ -30,6 +33,7 @@
     "name": "Dr. lucio",
     "specialty": "Médico General",
     "image": "img/doctor_4.png",
+    "experience": 4,
     "diplomas": {
       "titulo": "universidad de chile",
       "magister": "pointificia universidad católica"
