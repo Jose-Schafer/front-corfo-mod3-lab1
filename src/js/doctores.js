@@ -12,7 +12,7 @@ function capitalizeAllAttributes(obj) {
   );
 }
 
-function createDoctorHTML(image, name, specialty, titulo, magister) {
+function createDoctorHTML(image, name, specialty, titulo, magister, experience) {
   const card = document.createElement('div');
   card.className = 'card col-8 col-lg-3 m-lg-2 mx-auto';
 
@@ -30,7 +30,7 @@ function createDoctorHTML(image, name, specialty, titulo, magister) {
 
   const p = document.createElement('p');
   p.className = 'card-description';
-  p.textContent = specialty;
+  p.textContent = `${specialty} (${experience})`;
   textDiv.appendChild(p);
 
   const p2 = document.createElement('p');
@@ -64,6 +64,7 @@ async function loadDoctorCards() {
 
     // Sort doctors
     if (sortAscending) {
+      doctors.sort((a, b) => a.experience - b.experience);
     } else {
       doctors.sort((a, b) => b.experience - a.experience);
     }
@@ -86,7 +87,7 @@ async function loadDoctorCards() {
       console.log(`JSON Original: ${JSON.stringify(doctor)}`);
       console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
 
-      const { image, name, specialty, diplomas: { titulo, magister } } = customDoctor;
+      const { image, name, specialty, diplomas: { titulo, magister }, experience } = customDoctor;
 
       // Obtener el valor del input
       const inputElement = document.getElementById("doctorFilter");
@@ -94,11 +95,11 @@ async function loadDoctorCards() {
 
       // Condicional para ver si renderizar al doctor o no
       if (inputValue == '') {
-        const card = createDoctorHTML(image, name, specialty, titulo, magister);
+        const card = createDoctorHTML(image, name, specialty, titulo, magister, experience);
         container.appendChild(card);
 
       } else if (name.includes(inputValue)) {
-        const card = createDoctorHTML(image, name, specialty, titulo, magister);
+        const card = createDoctorHTML(image, name, specialty, titulo, magister, experience);
         container.appendChild(card);
       }
     });
