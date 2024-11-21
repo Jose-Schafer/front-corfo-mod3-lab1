@@ -1,18 +1,6 @@
-function capitalizeWords(string) {
-  return string.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
+import { capitalizeAllAttributes } from '../utils/modifiers'
 
-function capitalizeAllAttributes(obj) {
-  return Object.fromEntries(
-    Object.entries(obj).map(([key, value]) =>
-      [key, typeof value === 'string' ? capitalizeWords(value) : value]
-    )
-  );
-}
 // Currying
-
 const calcularCosto = (precioConsultas) => (consultasRealizadas) => precioConsultas * consultasRealizadas;
 
 const costoTotalConsultas = calcularCosto(15000);
@@ -62,7 +50,7 @@ function addDoctorToList(containerId, image, name, specialty, titulo, magister) 
   container.appendChild(doctorCard);
 }
 
-async function addDoctors() {
+export async function addDoctors() {
   let response = await fetch('../../public/static/json/especialistas.json');
   const especialistas = await response.json();
 
@@ -116,6 +104,4 @@ function appendAppointment(name, specialty) {
   appointmentSection.appendChild(appointmentItem);
 }
 
-// Example Usage
-document.addEventListener('DOMContentLoaded', addDoctors);
 

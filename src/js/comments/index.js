@@ -1,4 +1,4 @@
-import { validatePhoneNumber, validateEmail } from "./utils/validators";
+import { validatePhoneNumber, validateEmail } from "../utils/validators";
 
 const reviews = [
   {
@@ -16,7 +16,7 @@ const reviews = [
 ];
 
 // Función para agregar dinámicamente comentarios
-function renderComments() {
+export function renderComments() {
   const container = document.getElementById("comments");
   container.innerHTML = ""; // Borrar comentarios ya renderizados para evitar duplicados
 
@@ -53,7 +53,7 @@ function renderComments() {
 }
 
 // Función para agregar nuevo comentario
-function addNewComment() {
+export function addNewComment() {
   try {
     const userName = prompt("Ingresa tu nombre:");
     console.log(`El nombre ingresado fue: ${userName}`)
@@ -83,7 +83,3 @@ function addNewComment() {
   }
 }
 
-// Add event listener to the button
-document.getElementById("buttonAddComment").addEventListener("click", addNewComment);
-
-document.addEventListener("DOMContentLoaded", renderComments);
