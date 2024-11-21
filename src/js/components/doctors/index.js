@@ -1,44 +1,7 @@
-import { capitalizeAllAttributes } from '../../utils/modifiers'
+import { capitalizeAllAttributes } from '../../utils/modifiers';
+import { createDoctorHTML } from './html-builder';
 
-function createDoctorHTML(image, name, specialty, titulo, magister, experience) {
-  const card = document.createElement('div');
-  card.className = 'card col-8 col-lg-3 m-lg-2 mx-auto';
-
-  const img = document.createElement('img');
-  img.className = "card-img-top";
-  img.src = `../../${image}`;
-
-  const textDiv = document.createElement('div');
-  textDiv.className = 'card-body';
-
-  const h5 = document.createElement("h5");
-  h5.className = 'card-title';
-  h5.textContent = name;
-  textDiv.appendChild(h5);
-
-  const p = document.createElement('p');
-  p.className = 'card-description';
-  p.textContent = `${specialty} (${experience})`;
-  textDiv.appendChild(p);
-
-  const p2 = document.createElement('p');
-  p2.className = 'card-description';
-  p2.textContent = `Título: ${titulo}`;
-  textDiv.appendChild(p2);
-
-  const p3 = document.createElement('p');
-  p3.className = 'card-description';
-  p3.textContent = `Magister: ${magister}`;
-  textDiv.appendChild(p3);
-
-  card.appendChild(img);
-  card.appendChild(textDiv);
-
-  return card
-}
-let sortAscending = true;
-
-export async function loadDoctorCards() {
+export async function loadDoctorCards(sortAscending) {
   try {
     let response = await fetch('../../public/static/json/especialistas.json');
     const especialistas = await response.json();
@@ -71,8 +34,8 @@ export async function loadDoctorCards() {
 
       // Modificar json
       customDoctor = capitalizeAllAttributes(customDoctor);
-      console.log(`JSON Original: ${JSON.stringify(doctor)}`);
-      console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
+      // console.log(`JSON Original: ${JSON.stringify(doctor)}`);
+      // console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
 
       const { image, name, specialty, diplomas: { titulo, magister }, experience } = customDoctor;
 
@@ -95,17 +58,4 @@ export async function loadDoctorCards() {
   }
 }
 
-export async function changeSortDirection() {
-  console.log(`Change sort direction: ${sortAscending} -> ${!sortAscending}`)
-
-  // Change sort direction
-  sortAscending = !sortAscending;
-
-  // Change button text
-  const button = document.getElementById("sortButton");
-  button.textContent = sortAscending ? "^" : "v";
-
-  // Sort doctors
-  loadDoctorCards();
-}
 
