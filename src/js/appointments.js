@@ -11,6 +11,14 @@ function capitalizeAllAttributes(obj) {
     )
   );
 }
+// Currying
+
+const calcularCosto = (precioConsultas) => (consultasRealizadas) => precioConsultas * consultasRealizadas;
+
+const costoTotalConsultas = calcularCosto(15000);
+
+console.log(`${costoTotalConsultas(5)}`);
+
 
 // Function to create doctor card HTML
 function createDoctorHTML(image, name, specialty, titulo, magister) {
