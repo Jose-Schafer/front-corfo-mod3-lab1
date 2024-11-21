@@ -1,4 +1,4 @@
-import { capitalizeAllAttributes } from '../utils/modifiers'
+import { capitalizeAllAttributes } from '../../utils/modifiers'
 
 function createDoctorHTML(image, name, specialty, titulo, magister, experience) {
   const card = document.createElement('div');

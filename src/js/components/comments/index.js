@@ -1,4 +1,4 @@
-import { validatePhoneNumber, validateEmail } from "../utils/validators";
+import { validatePhoneNumber, validateEmail } from "../../utils/validators";
 
 const reviews = [
   {

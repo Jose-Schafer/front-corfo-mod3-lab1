@@ -1,4 +1,4 @@
-import { capitalizeAllAttributes } from '../utils/modifiers'
+import { capitalizeAllAttributes } from '../../utils/modifiers'
 
 // Currying
 const calcularCosto = (precioConsultas) => (consultasRealizadas) => precioConsultas * consultasRealizadas;

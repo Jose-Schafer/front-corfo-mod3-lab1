@@ -1,5 +1,5 @@
 import '../scss/styles.scss'
-import { loadDoctorCards, changeSortDirection } from './doctors'
+import { loadDoctorCards, changeSortDirection } from './components/doctors'
 
 document.addEventListener('DOMContentLoaded', loadDoctorCards);
 document.getElementById("doctorFilter").addEventListener("change", loadDoctorCards);
