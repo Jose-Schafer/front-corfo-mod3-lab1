@@ -1,7 +1,7 @@
 import { capitalizeAllAttributes } from '../../utils/modifiers';
 import { createDoctorHTML } from './html-builder';
 
-export async function loadDoctorCards(sortAscending) {
+export async function loadDoctorCards(getSortAscending) {
   try {
     let response = await fetch('../../public/static/json/especialistas.json');
     const especialistas = await response.json();
@@ -13,7 +13,7 @@ export async function loadDoctorCards(sortAscending) {
     const doctors = [...especialistas, ...generales]
 
     // Sort doctors
-    if (sortAscending) {
+    if (getSortAscending()) {
       doctors.sort((a, b) => a.experience - b.experience);
     } else {
       doctors.sort((a, b) => b.experience - a.experience);

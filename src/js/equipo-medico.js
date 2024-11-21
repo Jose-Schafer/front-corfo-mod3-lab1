@@ -4,11 +4,10 @@ import { loadDoctorCards } from './components/doctors';
 import { changeSortDirection } from './utils/sorter';
 
 // variables
-const [sortAscending, setSortAscending] = useState(true);
-
+const [getSortAscending, setSortAscending] = useState(true);
 
 // events
-document.addEventListener('DOMContentLoaded', () => loadDoctorCards(sortAscending()));
-document.getElementById("doctorFilter").addEventListener("change", () => loadDoctorCards(sortAscending()));
-document.getElementById("sortButton").addEventListener("click", () => changeSortDirection(loadDoctorCards, sortAscending(), setSortAscending, "sortButton"))
+document.addEventListener('DOMContentLoaded', () => loadDoctorCards(getSortAscending));
+document.getElementById("doctorFilter").addEventListener("change", () => loadDoctorCards(getSortAscending));
+document.getElementById("sortButton").addEventListener("click", () => changeSortDirection(loadDoctorCards, getSortAscending, setSortAscending, "sortButton"))
 
