@@ -7,7 +7,7 @@ pnpm install
 # Levantar servidor
 Ejecutar
 ```sh
-pnpm start
+pnpm run dev
 ```
 
 Abrir el navegador en el puerto 8080

@@ -63,10 +63,10 @@ function addDoctorToList(containerId, image, name, specialty, titulo, magister) 
 }
 
 async function addDoctors() {
-  let response = await fetch('json/especialistas.json');
+  let response = await fetch('../../public/static/json/especialistas.json');
   const especialistas = await response.json();
 
-  response = await fetch('json/generales.json');
+  response = await fetch('../../public/static/json/generales.json');
   const generales = await response.json();
 
   // Mergear jsons

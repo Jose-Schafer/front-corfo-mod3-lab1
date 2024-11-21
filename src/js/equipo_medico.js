@@ -48,15 +48,14 @@ function createDoctorHTML(image, name, specialty, titulo, magister, experience) 
 
   return card
 }
-
 let sortAscending = true;
 
 async function loadDoctorCards() {
   try {
-    let response = await fetch('json/especialistas.json');
+    let response = await fetch('../../public/static/json/especialistas.json');
     const especialistas = await response.json();
 
-    response = await fetch('json/generales.json');
+    response = await fetch('../../public/static/json/generales.json');
     const generales = await response.json();
 
     // Mergear jsons
