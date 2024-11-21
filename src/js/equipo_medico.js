@@ -18,7 +18,7 @@ function createDoctorHTML(image, name, specialty, titulo, magister, experience) 
 
   const img = document.createElement('img');
   img.className = "card-img-top";
-  img.src = image;
+  img.src = `../../${image}`;
 
   const textDiv = document.createElement('div');
   textDiv.className = 'card-body';
