@@ -1,14 +1,16 @@
 export class AppointmentStack {
-  constructor(containerId, createAppointmentListItemHTML) {
-    this.stack = [];
+  constructor(containerId, createAppointmentListItemHTML, storageKey = 'appointmentStack') {
+    this.storageKey = storageKey;
+    this.stack = this.loadFromStorage();
     this.container = document.getElementById(containerId);
     this.createAppointmentListItemHTML = createAppointmentListItemHTML;
-
+    this.updateAppointmentListHTML();
   }
 
   push(appointment) {
     this.stack.push(appointment);
     console.log(`Cita añadida: ${JSON.stringify(appointment)}`);
+    this.saveToStorage();
     this.updateAppointmentListHTML();
   }
 
@@ -20,6 +22,7 @@ export class AppointmentStack {
 
     const removedAppointment = this.stack.pop();
     console.log(`Cita eliminada: ${JSON.stringify(removedAppointment)}`);
+    this.saveToStorage();
     this.updateAppointmentListHTML();
     return removedAppointment;
   }
@@ -33,8 +36,13 @@ export class AppointmentStack {
     return this.stack[this.stack.length - 1];
   }
 
-  getAllAppointments() {
-    return [...this.stack];
+  saveToStorage() {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.stack))
+  }
+
+  loadFromStorage() {
+    const savedStack = localStorage.getItem(this.storageKey);
+    return savedStack ? JSON.parse(savedStack) : [];
   }
 
   updateAppointmentListHTML() {

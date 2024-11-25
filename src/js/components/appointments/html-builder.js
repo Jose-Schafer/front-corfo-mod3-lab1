@@ -14,7 +14,15 @@ export function createDoctorListItemHTML(name, specialty, appointmentStack) {
   const button = doctorItem.querySelector('button');
   button.addEventListener('click', (event) => {
     event.preventDefault();
-    appointmentStack.push({ name, specialty })
+
+    // Get appointment details
+    const inputNombre = document.getElementById("nombre");
+    const paciente = inputNombre.value;
+
+    const inputFechaHora = document.getElementById("fechaHora");
+    const fechaHora = inputFechaHora.value;
+
+    appointmentStack.push({ name, specialty, paciente, fechaHora })
   });
 
   return doctorItem
@@ -22,18 +30,12 @@ export function createDoctorListItemHTML(name, specialty, appointmentStack) {
 
 export function createAppointmentListItemHTML(appointment, index) {
 
-  const { name, specialty } = { ...appointment };
+  const { name, specialty, paciente, fechaHora } = { ...appointment };
 
   // Create a new list item for the appointment
   const appointmentItem = document.createElement('div');
   appointmentItem.className = 'card mt-4';
 
-  // Get appointment details
-  const inputNombre = document.getElementById("nombre");
-  const paciente = inputNombre.value;
-
-  const inputFechaHora = document.getElementById("fechaHora");
-  const fechaHora = inputFechaHora.value;
 
   appointmentItem.innerHTML = `
     <div class="card mt-4">
