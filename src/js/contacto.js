@@ -1,5 +1,5 @@
 import '../scss/styles.scss'
-import { addDoctors } from './components/appointments';
+import { renderDoctorList } from './components/appointments';
 
 // Example Usage
-document.addEventListener('DOMContentLoaded', addDoctors);
+document.addEventListener('DOMContentLoaded', renderDoctorList);

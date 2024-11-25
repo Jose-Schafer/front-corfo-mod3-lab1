@@ -34,8 +34,8 @@ export async function loadDoctorCards(getSortAscending) {
 
       // Modificar json
       customDoctor = capitalizeAllAttributes(customDoctor);
-      // console.log(`JSON Original: ${JSON.stringify(doctor)}`);
-      // console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
+      console.log(`JSON Original: ${JSON.stringify(doctor)}`);
+      console.log(`JSON Modificado: ${JSON.stringify(customDoctor)}`);
 
       const { image, name, specialty, diplomas: { titulo, magister }, experience } = customDoctor;
 
