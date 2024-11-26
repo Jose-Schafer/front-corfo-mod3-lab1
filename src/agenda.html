@@ -39,6 +39,17 @@
 
         <div class="page__content">
             <h2>Listado de citas médicas</h2>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Todas las citas
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Última cita agendada
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Siguiente cita
+              </label>
+            </div>
             <div class="container mb-4" id="agendarHoraContainer">
                 <!-- Appointment Information -->
                 <div id="appointment-list"></div>
