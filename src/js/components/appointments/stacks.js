@@ -1,17 +1,18 @@
 export class AppointmentStack {
-  constructor(containerId, createAppointmentListItemHTML, storageKey = 'appointmentStack') {
+  constructor(callback, storageKey = 'appointmentStack') {
     this.storageKey = storageKey;
     this.stack = this.loadFromStorage();
-    this.container = document.getElementById(containerId);
-    this.createAppointmentListItemHTML = createAppointmentListItemHTML;
-    this.updateAppointmentListHTML();
+    this.callback = callback;
+
+    // To avoid that using this method as a callback changes the definition of "this" for this method
+    this.removeAt = this.removeAt.bind(this);
   }
 
   push(appointment) {
     this.stack.push(appointment);
     console.log(`Cita añadida: ${JSON.stringify(appointment)}`);
     this.saveToStorage();
-    this.updateAppointmentListHTML();
+    this.callback(this.stack);
   }
 
   pop() {
@@ -23,7 +24,7 @@ export class AppointmentStack {
     const removedAppointment = this.stack.pop();
     console.log(`Cita eliminada: ${JSON.stringify(removedAppointment)}`);
     this.saveToStorage();
-    this.updateAppointmentListHTML();
+    this.callback(this.stack);
     return removedAppointment;
   }
 
@@ -36,6 +37,19 @@ export class AppointmentStack {
     return this.stack[this.stack.length - 1];
   }
 
+  removeAt(index) {
+    if (index < 0 || index >= this.stack.length) {
+      console.log("Índice fuera de rango");
+      return null;
+    }
+
+    const removedAppointment = this.stack.splice(index, 1)[0];
+    console.log(`Cita eliminada: ${JSON.stringify(removedAppointment)}`);
+    this.saveToStorage();
+    this.callback(this.stack);
+    return removedAppointment;
+  }
+
   saveToStorage() {
     localStorage.setItem(this.storageKey, JSON.stringify(this.stack))
   }
@@ -45,15 +59,5 @@ export class AppointmentStack {
     return savedStack ? JSON.parse(savedStack) : [];
   }
 
-  updateAppointmentListHTML() {
-    // Limpiar el contenedor
-    this.container.innerHTML = '';
-
-    // Generar y agregar elementos HTML para cada cita
-    this.stack.forEach((appointment, index) => {
-      const appointmentItem = this.createAppointmentListItemHTML(appointment, index)
-      this.container.appendChild(appointmentItem);
-    });
-  }
 
 }

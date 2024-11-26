@@ -1,7 +1,11 @@
 import '../scss/styles.scss'
-import { AppointmentStack, createAppointmentListItemHTML, createDoctorListItemHTML, capitalizeAllAttributes } from './components/appointments';
+import { AppointmentStack, createDoctorListItemHTML, capitalizeAllAttributes } from './components/appointments';
 
-const appointmentStack = new AppointmentStack('appointment-list', createAppointmentListItemHTML);
+const message = () => {
+  alert("Tu cita fue agendada correctamente")
+}
+
+const appointmentStack = new AppointmentStack(message);
 
 async function renderDoctorList() {
   let response = await fetch('../../public/static/json/especialistas.json');

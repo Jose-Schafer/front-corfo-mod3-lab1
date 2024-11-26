@@ -28,7 +28,7 @@ export function createDoctorListItemHTML(name, specialty, appointmentStack) {
   return doctorItem
 }
 
-export function createAppointmentListItemHTML(appointment, index) {
+export function createAppointmentListItemHTML(appointment, index, removeItem) {
 
   const { name, specialty, paciente, fechaHora } = { ...appointment };
 
@@ -38,7 +38,12 @@ export function createAppointmentListItemHTML(appointment, index) {
 
 
   appointmentItem.innerHTML = `
-    <div class="card mt-4">
+    <div class="card mt-4" style="position: relative;">
+      <button 
+        class="btn-close" 
+        aria-label="Close" 
+        style="position: absolute; top: 5px; right: 10px; z-index: 1;">
+      </button>
       <div class="card-body">
         <h5 class="card-title">Cita Confirmada</h5>
         <p><strong>Nombre del Doctor:</strong> ${name}</p>
@@ -49,6 +54,13 @@ export function createAppointmentListItemHTML(appointment, index) {
     </div>
   `;
 
-  return appointmentItem;
+  // Add an event listener to the button
+  const button = appointmentItem.querySelector('button');
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
 
+    removeItem(index)
+  });
+
+  return appointmentItem;
 }
