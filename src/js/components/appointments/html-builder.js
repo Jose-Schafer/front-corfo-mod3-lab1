@@ -34,8 +34,6 @@ export function createAppointmentListItemHTML(appointment, index, removeItem) {
 
   // Create a new list item for the appointment
   const appointmentItem = document.createElement('div');
-  appointmentItem.className = 'card mt-4';
-
 
   appointmentItem.innerHTML = `
     <div class="card mt-4" style="position: relative;">
@@ -44,12 +42,16 @@ export function createAppointmentListItemHTML(appointment, index, removeItem) {
         aria-label="Close" 
         style="position: absolute; top: 5px; right: 10px; z-index: 1;">
       </button>
-      <div class="card-body">
+      <div class="card-body row">
         <h5 class="card-title">Cita Confirmada</h5>
-        <p><strong>Nombre del Doctor:</strong> ${name}</p>
-        <p><strong>Especialidad:</strong> ${specialty}</p>
-        <p><strong>Paciente:</strong> ${paciente}</p>
-        <p><strong>Fecha y Hora:</strong> ${fechaHora}</p>
+        <div class="col">
+          <p><strong>Nombre del Doctor:</strong> ${name}</p>
+          <p><strong>Especialidad:</strong> ${specialty}</p>
+        </div>
+        <div class="col">
+          <p><strong>Paciente:</strong> ${paciente}</p>
+          <p><strong>Fecha y Hora:</strong> ${fechaHora}</p>
+        </div>
       </div>
     </div>
   `;
@@ -61,6 +63,24 @@ export function createAppointmentListItemHTML(appointment, index, removeItem) {
 
     removeItem(index)
   });
+
+  return appointmentItem;
+}
+
+export function createUpcommingAppointmentItemHTML(appointment) {
+  const { paciente, fechaHora } = { ...appointment };
+
+  // Create a new list item for the appointment
+  const appointmentItem = document.createElement('div');
+  appointmentItem.className = 'card mt-4';
+
+
+  appointmentItem.innerHTML = `
+    <div class="card-body row">
+      <p class="col"><strong>Paciente:</strong> ${paciente}</p>
+      <p class="col"><strong>Fecha y Hora:</strong> ${fechaHora}</p>
+    </div>
+  `;
 
   return appointmentItem;
 }

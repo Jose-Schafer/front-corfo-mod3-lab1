@@ -29,6 +29,13 @@ export class AppointmentStack {
 
   getUpcommingAppointment() {
     // Get upcomming appointment based on the field fechaHora
+    const sortedStack = this.getSortedStack()
+    // Return the closest upcoming appointment
+    return sortedStack[0];
+  }
+
+  getSortedStack() {
+    // Get sorted stack
     if (this.stack.length === 0) {
       console.log("No hay citas en la pila");
       return null;
@@ -38,7 +45,8 @@ export class AppointmentStack {
     const sortedStack = [...this.stack].sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora));
 
     // Return the closest upcoming appointment
-    return sortedStack[0];
+    return sortedStack;
+
   }
 
   removeAt(index) {

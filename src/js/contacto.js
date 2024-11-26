@@ -1,5 +1,5 @@
 import '../scss/styles.scss'
-import { AppointmentStack, createDoctorListItemHTML, capitalizeAllAttributes } from './components/appointments';
+import { AppointmentStack, createDoctorListItemHTML, capitalizeAllAttributes, createUpcommingAppointmentItemHTML } from './components/appointments';
 
 const message = () => {
   alert("Tu cita fue agendada correctamente")
@@ -31,4 +31,16 @@ async function renderDoctorList() {
   })
 }
 
+async function renderUpcommingAppointmentList() {
+  const container = document.getElementById("upcomming-appointment-list")
+
+  const appointmentList = appointmentStack.getSortedStack();
+
+  appointmentList.forEach((appointment) => {
+    const appointmentItem = createUpcommingAppointmentItemHTML(appointment);
+    container.appendChild(appointmentItem);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', renderDoctorList);
+document.addEventListener('DOMContentLoaded', renderUpcommingAppointmentList);
