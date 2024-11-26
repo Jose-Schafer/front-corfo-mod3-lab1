@@ -44,5 +44,6 @@ La función getSortAscending() no está definida en el código, pero si asumimos
 
 #### Comparación personalizada:
 La comparación (a.experience - b.experience) o (b.experience - a.experience) se realiza para cada par de elementos en el proceso de ordenamiento. Esto no cambia la complejidad general del algoritmo sort.
-Complejidad Total:
+
+#### Complejidad Total:
 La complejidad total del algoritmo es O(n log n) debido al método sort.
